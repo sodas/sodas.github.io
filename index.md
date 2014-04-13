@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Sodas
-tagline: Sodas
+title: 傻大球
+tagline: 喜欢科技运动美女的死理性派宅极动物
 ---
 {% include JB/setup %}
 
