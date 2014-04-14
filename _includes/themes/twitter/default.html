@@ -43,19 +43,19 @@
             <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
           <ul class="nav nav-tabs">
 
-            {% if page.url == "/archive.html" %}
+            {% if page.url == "{{ HOME_PATH }}/archive.html" %}
             <li class="active"><a href="{{ HOME_PATH }}/archive.html"><i class="icon-folder-open"></i>Archive</a></li>
             {% else %}
             <li ><a href="{{ HOME_PATH }}/archive.html"><i class="icon-folder-open"></i>Archive</a></li>
             {% endif %}
 
-            {% if page.url == "/categories.html" %}
+            {% if page.url == "{{ HOME_PATH }}/categories.html" %}
             <li class="active"><a href="{{ HOME_PATH }}/categories.html"><i class="icon-list-alt"></i>Categories</a></li>
             {% else %}
             <li ><a href="{{ HOME_PATH }}/categories.html"><i class="icon-list-alt"></i>Categories</a></li>
             {% endif %}
 
-            {% if page.url == "/about.html" %}
+            {% if page.url == "{{ HOME_PATH }}/about.html" %}
             <li class="active"><a href="{{ HOME_PATH }}/about.html"><i class="icon-user"></i>About</a></li>
             {% else %} 
             <li ><a href="{{ HOME_PATH }}about.html"><i class="icon-user"></i>About</a></li>
