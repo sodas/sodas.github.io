@@ -3,7 +3,7 @@
 		<div class="span3">
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
-					<li class="nav-header"><i class="icon-folder-open"></i>文章列表</li>
+					<li class="nav-header"><i class="icon-folder-open"></i>archive list</li>
 					{% for post in site.posts %}
     				<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   					{% endfor %}
