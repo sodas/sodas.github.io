@@ -1,8 +1,8 @@
 ---
 layout: post
-category : lessons
+category : Android
 tagline: 
-tags : Android开发
+tags : 
 ---
 {% include JB/setup %}
 
@@ -21,12 +21,17 @@ fragments 在 HoneyComb(3.0)之前不是API的一部分，在HoneyComb之前想�
 3.0以后：
 
 use android.app.Fragment with Activity
+
 调用getFragmentManager() 来得到 android.app.FragmentManager
+
 调用getLoaderManager() 来得到 android.app.LoaderManager
 
 3.0以前：
 
 Use android.support.v4.app.Fragment withFragmentActivity
-调用getSupportFragmentManager()来得到android.support.v4.app.FragmentManager.
+
+调用getSupportFragmentManager()来得到android.support.v4.app.FragmentManager
+
 调用getSupportLoaderManager()来得到android.support.v4.app.LoaderManager
+
 
