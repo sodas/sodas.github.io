@@ -1,8 +1,8 @@
 ---
 layout: post
-category : lessons
+category : Android
 tagline: 
-tags : Android
+tags : 
 ---
 {% include JB/setup %}
 
