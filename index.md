@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 傻大球
-tagline: 喜欢科技运动美女的死理性派宅极动物
+tagline: 但行好事 莫问前程
 ---
 {% include JB/setup %}
 
