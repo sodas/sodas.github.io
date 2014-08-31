@@ -3649,7 +3649,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs.nav-justified {
   width: 100%;
-  border-bottom: 0;
+  border-bottom: 1px solid #ddd;
 }
 .nav-tabs.nav-justified > li {
   float: none;
