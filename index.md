@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 傻大球
-tagline: 但行好事 莫问前程
+title: 
+tagline: 
 ---
 {% include JB/setup %}
 
