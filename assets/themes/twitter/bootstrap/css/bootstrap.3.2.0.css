@@ -3645,6 +3645,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #black;
   cursor: default;
   background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
 .nav-tabs.nav-justified {
   width: 100%;
