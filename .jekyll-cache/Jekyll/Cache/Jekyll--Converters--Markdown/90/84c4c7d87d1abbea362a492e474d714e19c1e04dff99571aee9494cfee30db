@@ -1,0 +1,96 @@
+I"� <p>今天去金山实习笔试，参加了android开发的笔试。总结总结。</p>
+
+<p>###第一题：java异常抛出
+java的一场处理是通过5个关键字来实现的：try,catch,throw，throws,finally。</p>
+
+<p><strong>try语句</strong>
+try{}，该代码段可能会抛出一个或多个异常</p>
+
+<p><strong>catch语句</strong>
+catch(Exception e){}，大括号中包含异常对象的处理，其中可以调用对象的方法。catch语句可以有多个，分别处理不同类的异常。</p>
+
+<p><strong>throws语句</strong>
+boolean testEx2() throws Exception{}，
+throws总是出现在一个函数头中，用来表明该成员函数可能抛出的各种异常。抛出RuntimeException的话必须用throws声明它的类型。</p>
+
+<p><strong>finally语句</strong>
+try中的代码，若抛出一个异常时，其后的代码不会被执行，通过finally语句可以指定一块代码，不管抛不抛出异常，都要被执行，通常是进行资源的清除工作，比如关闭打开的文件。</p>
+
+<p><strong>throw语句</strong>
+throw（异常对象），抛出后由该方法的调用者去处理。</p>
+
+<p>###第二题：文件，排序，统计
+####文件操作，读每一行：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">readFileByLines</span><span class="o">(</span><span class="nc">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">array</span><span class="o">[</span><span class="mi">1000</span><span class="o">];</span>
+        <span class="nc">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"以行为单位读取文件内容，一次读一整行："</span><span class="o">);</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileReader</span><span class="o">(</span><span class="n">file</span><span class="o">));</span>
+            <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="c1">// 一次读入一行，直到读入null为文件结束</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">temp</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// 显示行号</span>
+                <span class="k">for</span><span class="o">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;;</span><span class="n">i</span><span class="o">++){</span>
+                	<span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">temp</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">reader</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>####排序
+我用的是冒泡排序，我看网上多数是用双重for循环。我用的是while(flag)，flag记录的是这一趟排序是否发生交换。</p>
+
+<p>####统计
+排序之后就是统计，当时没做出来:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">while</span><span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="n">array</span><span class="o">.</span><span class="na">lenth</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">++]){</span>
+		<span class="n">i</span><span class="o">++;</span>
+		<span class="n">count</span><span class="o">++;</span>	
+		<span class="o">}</span>
+		<span class="k">else</span><span class="o">{</span>
+		<span class="n">将统计次数和对应数字存入二维数组</span><span class="err">；</span>
+		<span class="n">i</span><span class="o">++;</span>
+		<span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>###第三题：线程
+<strong>1.继承Thread类</strong>
+好处是编写比较简单，坏处是不能再继承其他父类</p>
+
+<p><strong>2.实现Runnable接口方法</strong>
+好处是比较灵活和可拓展，可继承其他父类，但是编写相对复杂一些。</p>
+
+<p>###第四题：安卓service生命周期
+虽然写过一个简易的音乐播放器，但service的生命周期还是记不住了，只记得大概和acitivity的lifecyle略有区别。根据android官方文档写的，service提供这两个功能：
+	一个功能是让app去告诉system有些事情是希望在后台完成的（用户甚至不能直接交互）。这对应于调用Context.startService()，
+	让system为这个service去安排工作，一直运行到这个服务或者有人明确地停止服务。
+	另一个功能是让一个app向其他app“暴露”自己的功能。这对应于调用Context.bindService()，为了与服务交互，这允许建立一个长期存在的连接。</p>
+
+<p><strong>1.通过startService</strong>
+Service会经历 onCreate 到onStart，然后处于运行状态，stopService的时候调用onDestroy方法。
+ 如果是调用者自己直接退出而没有调用stopService的话，Service会一直在后台运行。</p>
+
+<p><strong>2.通过bindService</strong>
+ Service会运行onCreate，然后是调用onBind， 这个时候调用者和Service绑定在一起。调用者退出了，Srevice就会调用onUnbind-&gt;onDestroyed方法。
+ 所谓绑定在一起就共存亡了。调用者也可以通过调用unbindService方法来停止服务，这时候Srevice就会调用onUnbindonUnbind-&gt;onDestroyed方法。</p>
+
+<p>还有bindService()和startService()混合使用的，这里先mark，以后学到用到再回来记录。</p>
+
+<p>附上activity的生命周期
+ <img src="\assets\pic\android_activity_lifecyle.png" alt="activitylifecyle" /></p>
+
+:ET

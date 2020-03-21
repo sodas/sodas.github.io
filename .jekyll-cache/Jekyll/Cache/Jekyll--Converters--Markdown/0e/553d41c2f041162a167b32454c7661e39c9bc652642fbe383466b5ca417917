@@ -1,0 +1,30 @@
+I"I
+<p>###fragment
+一个fragment是一个activity的一部分，它有：
+	-自己的生命周期
+	-接受自己的输入事件
+	-当activity在运行的时候可以被添加或者删除</p>
+
+<p><strong>一个fragment必须总嵌入在一个activity中</strong></p>
+
+<p>fragments 在 HoneyComb(3.0)之前不是API的一部分，在HoneyComb之前想使用fragments就需要<strong>添加SupportPackage</strong>到你的project里并且使用<strong>FragmentActivity</strong>来hold你的fragments。而在3.0之后则可以直接使用Activity来holdFragments。</p>
+
+<p>###一些细节：</p>
+
+<p><strong>3.0以后：</strong></p>
+
+<p>use android.app.Fragment with Activity</p>
+
+<p>调用getFragmentManager() 来得到 android.app.FragmentManager</p>
+
+<p>调用getLoaderManager() 来得到 android.app.LoaderManager</p>
+
+<p><strong>3.0以前：</strong></p>
+
+<p>Use android.support.v4.app.Fragment withFragmentActivity</p>
+
+<p>调用getSupportFragmentManager()来得到android.support.v4.app.FragmentManager</p>
+
+<p>调用getSupportLoaderManager()来得到android.support.v4.app.LoaderManager</p>
+
+:ET
